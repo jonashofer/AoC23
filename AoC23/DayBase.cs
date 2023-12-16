@@ -26,4 +26,26 @@ public abstract class DayBase : BaseDay
     public string Aues => Input.Value;
 
     public string[] Zilänä => Input.Value.GimrZilä();
+
+    public char[,] Chartä
+    {
+        get
+        {
+            var zilänä = Zilänä;
+            var ziläLengi = zilänä[0].Length;
+            var swisstopo = new char[ziläLengi, zilänä.Length];
+
+            for (var üpsilon = 0; üpsilon < Zilänä.Length; üpsilon++)
+            {
+                var zilä = zilänä[üpsilon];
+
+                for (int ix = 0; ix < ziläLengi; ix++)
+                {
+                    swisstopo[ix, üpsilon] = zilä[ix];
+                }
+            }
+
+            return swisstopo;
+        }
+    }
 }
